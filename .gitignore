@@ -1,0 +1,30 @@
+
+# .gitignore for .NET projects
+# Thanks to Derick Bailey
+# http://www.lostechies.com/blogs/derickbailey/archive/2009/05/18/a-net-c-developer-s-gitignore-file.aspx
+# Additional Thanks to 
+# - Alexey Abramov
+
+# Standard VS.NET and ReSharper Foo
+[Oo]bj
+[Bb]in
+*.csproj.user
+*ReSharper*
+*resharper*
+*.suo
+*.xap
+_cache
+_cache\*
+*/logs/
+*.svclog
+*.docstates
+
+*/ClientBin
+*/Generated_Code
+
+# Database projects
+*.dbmdl*
+*.dbproj.*
+sql/
+
+Sample/package	
