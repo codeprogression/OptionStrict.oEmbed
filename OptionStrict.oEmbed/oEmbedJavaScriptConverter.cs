@@ -1,16 +1,15 @@
-/* This oEmbed library is based on the OptionStrict.oEmbed library created by Cory Isakson. (blog.coryisakson.com) */
-
 using System;
 using System.Collections.Generic;
+using System.Web.Script.Serialization;
 
 namespace OptionStrict.oEmbed
 {
     public class oEmbedJavaScriptConverter : JavaScriptConverter
     {
-        private static readonly Type[] _supportedTypes = new[]
-                                                             {
-                                                                 typeof( oEmbed )
-                                                             };
+        static readonly Type[] _supportedTypes = new[]
+                                                     {
+                                                         typeof (oEmbed)
+                                                     };
 
         public override IEnumerable<Type> SupportedTypes
         {
@@ -21,7 +20,7 @@ namespace OptionStrict.oEmbed
                                            Type type,
                                            JavaScriptSerializer serializer)
         {
-            if (type == typeof(oEmbed))
+            if (type == typeof (oEmbed))
             {
                 var obj = new oEmbed();
 

@@ -1,3 +1,6 @@
+using System.IO;
+using Machine.Specifications;
+
 namespace OptionStrict.oEmbed.Specs
 {
     [Subject("Response")]
@@ -38,10 +41,28 @@ namespace OptionStrict.oEmbed.Specs
         private Because of = () =>
         {
             FakeOEmbed = oEmbedReaderTestBase.GetFakeOEmbed();
-            var writer = new oEmbedWriter();
+            var writer = new FakeOEmbedWriter();
             Response = writer.Write(FakeOEmbed, oEmbedFormat.Json);
         };
 
         private It should_be_json_deserializable = () => oEmbedSerializer.DeserializeJson(Response).ShouldNotBeNull();
+
+    public class FakeOEmbedWriter : oEmbedWriter
+    {
+        public override Stream WriteResponse(oEmbed oembed, oEmbedFormat format)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override Stream WriteResponse(oEmbed oembed, oEmbedFormat format, string callback)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override Stream FileNotFound()
+        {
+            throw new System.NotImplementedException();
+        }
+    }
     }
 }

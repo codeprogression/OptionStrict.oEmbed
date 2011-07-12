@@ -1,4 +1,5 @@
 using System.Xml;
+using Machine.Specifications;
 
 namespace OptionStrict.oEmbed.Specs
 {

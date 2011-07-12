@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>0312fd5c-2572-4c95-9008-c0795cdccc64</ProjectGuid>
+    <ProjectGuid>{B63FCD6F-7EDA-4D18-AAEF-3A3E24A1184F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OptionStrict.oEmbed.Specs</RootNamespace>
@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Machine.Specifications">
+      <HintPath>..\packages\Machine.Specifications.0.4.13.0\lib\Machine.Specifications.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,8 +46,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="oEmbedReaderTestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="When_Reading_Live_Sources.cs" />
+    <Compile Include="When_Response_Is_Json.cs" />
+    <Compile Include="When_Response_Is_Link.cs" />
+    <Compile Include="When_Response_Is_Photo.cs" />
+    <Compile Include="When_Response_Is_Video.cs" />
+    <Compile Include="When_Response_Is_Xml.cs" />
+    <Compile Include="When_Uri_Is_Null.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OptionStrict.oEmbed.MVC\OptionStrict.oEmbed.MVC.csproj">
+      <Project>{439BFBE0-6E32-4FA8-BD06-6F6816A544F4}</Project>
+      <Name>OptionStrict.oEmbed.MVC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OptionStrict.oEmbed\OptionStrict.oEmbed.csproj">
+      <Project>{4C7FA40C-015E-4D1D-9EE3-D4E8E08B0989}</Project>
+      <Name>OptionStrict.oEmbed</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

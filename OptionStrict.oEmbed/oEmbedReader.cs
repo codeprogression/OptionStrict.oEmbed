@@ -1,11 +1,10 @@
-﻿/* This oEmbed library is based on the OptionStrict.oEmbed library created by Cory Isakson. (blog.coryisakson.com) */
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Web;
 
 namespace OptionStrict.oEmbed
 {
@@ -15,12 +14,10 @@ namespace OptionStrict.oEmbed
         oEmbedResponse Read(string api, string url);
         oEmbedResponse Read(string api, string url, oEmbedFormat format);
         oEmbedResponse Read(string api, string url, int? maxwidth, int? maxheight, oEmbedFormat format);
+        oEmbedResponse Read(string api, string url, int? maxwidth, int? maxheight, oEmbedFormat format, NameValueCollection queryParameters);
 
-        oEmbedResponse Read(string api, string url, int? maxwidth, int? maxheight, oEmbedFormat format,
-                                            NameValueCollection queryParameters);
-
-        oEmbedResponse Read(string api, string url, int? maxwidth, int? maxheight, oEmbedFormat format,
-                                            NameValueCollection queryParameters, string userAgent);
+        // Create compiler directives to exclude all but this version in 4.0 version
+        oEmbedResponse Read(string api, string url, int? maxwidth, int? maxheight, oEmbedFormat format, NameValueCollection queryParameters, string userAgent);
     }
 
     public class oEmbedReader : IoEmbedReader
@@ -53,6 +50,15 @@ namespace OptionStrict.oEmbed
                 Read(new oEmbedRequest(api, url, maxwidth, maxheight, format,
                                        queryParameters ?? new NameValueCollection(), userAgent));
         }
+
+        // Create compiler directives to exclude all but this in NET4 version
+//        public oEmbedResponse Read(string api, string url, int? maxwidth=null, int? maxheight=null, oEmbedFormat format=oEmbedFormat.Unspecified,
+//                                   NameValueCollection queryParameters=null, string userAgent=null)
+//        {
+//            return
+//                Read(new oEmbedRequest(api, url, maxwidth, maxheight, format,
+//                                       queryParameters ?? new NameValueCollection(), userAgent));
+//        }
         public oEmbedResponse Read(oEmbedRequest request)
         {
             var response = new oEmbedResponse();
@@ -122,8 +128,7 @@ namespace OptionStrict.oEmbed
             }
             catch (Exception ex)
             {
-                Log.Error(ex, ex.Message);
-                //throw ex;
+                //Log the exception - log4net?
             }
 
             return readResponse;

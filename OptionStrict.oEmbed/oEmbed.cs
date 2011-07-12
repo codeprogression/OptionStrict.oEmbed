@@ -1,6 +1,4 @@
-﻿/* This oEmbed library is based on the OptionStrict.oEmbed library created by Cory Isakson. (blog.coryisakson.com) */
-
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 
 namespace OptionStrict.oEmbed
 {

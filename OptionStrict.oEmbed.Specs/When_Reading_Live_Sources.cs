@@ -1,4 +1,6 @@
-﻿namespace OptionStrict.oEmbed.Specs
+﻿using Machine.Specifications;
+
+namespace OptionStrict.oEmbed.Specs
 {
     public abstract class When_Reading_Live_Sources
     {

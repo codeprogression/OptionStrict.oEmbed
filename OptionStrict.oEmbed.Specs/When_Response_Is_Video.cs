@@ -1,3 +1,5 @@
+using Machine.Specifications;
+
 namespace OptionStrict.oEmbed.Specs
 {
     [Subject("Response")]
