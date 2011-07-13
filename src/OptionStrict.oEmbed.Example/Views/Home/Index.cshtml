@@ -1,0 +1,44 @@
+﻿@using OptionStrict.oEmbed
+@using OptionStrict.oEmbed.Example.Models
+@using OptionStrict.oEmbed.MVC
+@model oEmbedResponse
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>@ViewBag.Message</h2>
+<p>
+ Embed Flickr Photo with a simple Html.oEmbed('http://flickr.com/services/oembed?url=http://www.flickr.com/photos/isaksonfamily/4038008803/')
+        <br />
+        @Html.oEmbed(@"http://flickr.com/services/oembed",@"http://www.flickr.com/photos/isaksonfamily/4038008803/").WrappedHtml()
+    </p>
+    @using (Html.BeginForm())
+    {
+        <p>
+            Enter an oEmbed API:<br />
+            @Html.TextBox("api", "http://www.youtube.com/oembed", new {style = "width:800px"})
+        </p>
+        <p>
+            Enter an oEmbed Url:<br />
+            @Html.TextBox("url", "http://www.youtube.com/watch?v=hzCzFUBLyoQ", new {style = "width:800px"})
+        </p>
+        <p>
+            <input type="submit" value="Parse" />
+            
+        </p>
+        <p>RawResult(@Model.Format.ToString())
+</p>    
+        <pre>@HttpUtility.HtmlEncode(Model.RawResult)</pre>
+    <p>
+            Type:
+            @Model.oEmbed.Type.ToString()</p>
+        <p>S
+            AuthorName:
+            @Model.oEmbed.AuthorName</p>
+        <p>
+            Url:
+            @HttpUtility.UrlDecode(Model.oEmbed.Url)</p>
+        <p>
+            Html:
+            @Model.oEmbed.WrappedHtml()</p>
+    }

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptionStrict.oEmbed.MVC", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptionStrict.oEmbed.WCF", "OptionStrict.oEmbed.WCF\OptionStrict.oEmbed.WCF.csproj", "{A405A139-53FA-4020-A58C-37B3C47E5D74}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptionStrict.oEmbed.Example", "OptionStrict.oEmbed.Example\OptionStrict.oEmbed.Example.csproj", "{3E66DBE8-5392-4B9D-BDED-DB44DB2EB318}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{A405A139-53FA-4020-A58C-37B3C47E5D74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A405A139-53FA-4020-A58C-37B3C47E5D74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A405A139-53FA-4020-A58C-37B3C47E5D74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E66DBE8-5392-4B9D-BDED-DB44DB2EB318}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E66DBE8-5392-4B9D-BDED-DB44DB2EB318}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E66DBE8-5392-4B9D-BDED-DB44DB2EB318}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E66DBE8-5392-4B9D-BDED-DB44DB2EB318}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
