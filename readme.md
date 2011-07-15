@@ -10,7 +10,9 @@ OptionStrict.oEmbed is a .NET library for reading and writing oEmbed streams.
 For more information on the oEmbed specification, visit http://oembed.com.
 
 Other .NET implementations include:
+
 * [oEmbed API Wrapper for .Net](http://oembed.codeplex.com/)
+
 * ??
 
 
