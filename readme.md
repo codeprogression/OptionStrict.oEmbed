@@ -1,9 +1,17 @@
 # OptionStrict.oEmbed 
 _The oEmbed framework for .NET_
 
+OptionStrict.oEmbed is a .NET library for reading and writing oEmbed streams.
 
 
+>oEmbed is a format for allowing an embedded representation of a URL on third party sites. The simple API allows a website to display embedded content (such as photos or videos) when a user posts a link to that resource, without having to parse the resource directly.
+>http://oembed.com
 
+For more information on the oEmbed specification, visit http://oembed.com.
+
+Other .NET implementations include:
+* [oEmbed API Wrapper for .Net](http://oembed.codeplex.com/)
+* ??
 
 
 #### Licensed under the MIT License 
