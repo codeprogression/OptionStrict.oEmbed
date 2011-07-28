@@ -13,7 +13,7 @@
     <tags>oembed</tags>
   </metadata>
   <files>
-    <file src="..\OptionStrict.oEmbed\bin\Release\OptionStrict.oEmbed.dll" target="lib\net40\OptionStrict.oEmbed.dll" />
-    <file src="..\OptionStrict.oEmbed\bin\Release\OptionStrict.oEmbed.pdb" target="lib\net40\OptionStrict.oEmbed.pdb" />
+    <file src="..\src\OptionStrict.oEmbed\bin\Release\OptionStrict.oEmbed.dll" target="lib\net40\OptionStrict.oEmbed.dll" />
+    <file src="..\src\OptionStrict.oEmbed\bin\Release\OptionStrict.oEmbed.pdb" target="lib\net40\OptionStrict.oEmbed.pdb" />
   </files>
 </package>

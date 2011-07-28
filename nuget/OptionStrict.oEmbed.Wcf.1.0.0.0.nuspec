@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata schemaVersion="2">
-    <id>OptionStrict.oEmbed.Mvc</id>
+    <id>OptionStrict.oEmbed.Wcf</id>
     <version>1.0.0.0</version>
     <title />
     <authors>Richard Cirerol,Cory Isakson</authors>
@@ -10,8 +10,8 @@
     <projectUrl>https://github.com/codeprogression-opensource/OptionStrict.oEmbed</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A .NET library for reading and writing oEmbed streams.</description>
-    <summary>MVC implementation of OptionStrict.oEmbed.oEmbedWriter</summary>
-    <tags>oembed mvc</tags>
+    <summary>WCF implementation of OptionStrict.oEmbed.oEmbedWriter</summary>
+    <tags>oembed wcf</tags>
     <dependencies>
       <dependency id="OptionStrict.oEmbed" version="1.0.0.0" />
     </dependencies>
@@ -20,7 +20,7 @@
     </frameworkAssemblies>
   </metadata>
   <files>
-    <file src="..\OptionStrict.oEmbed.Mvc\bin\Release\OptionStrict.oEmbed.Mvc.dll" target="lib\net40\OptionStrict.oEmbed.Mvc.dll" />
-    <file src="..\OptionStrict.oEmbed.Mvc\bin\Release\OptionStrict.oEmbed.Mvc.pdb" target="lib\net40\OptionStrict.oEmbed.Mvc.pdb" />
+    <file src="..\src\OptionStrict.oEmbed.Wcf\bin\Release\OptionStrict.oEmbed.Wcf.dll" target="lib\net40\OptionStrict.oEmbed.Wcf.dll" />
+    <file src="..\src\OptionStrict.oEmbed.Wcf\bin\Release\OptionStrict.oEmbed.Wcf.pdb" target="lib\net40\OptionStrict.oEmbed.Wcf.pdb" />
   </files>
 </package>
