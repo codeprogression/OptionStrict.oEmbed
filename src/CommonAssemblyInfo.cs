@@ -5,14 +5,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OptionStrict.oEmbed.WCF")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("OptionStrict.oEmbed.WCF")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2011")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
+[assembly: AssemblyTitle("OptionStrict.oEmbed")]
+[assembly: AssemblyProduct("OptionStrict.oEmbed")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
@@ -20,7 +14,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("909170ea-2a81-4f68-990f-ec216c0476fd")]
+[assembly: Guid("c5c2335b-70b7-4700-9aeb-ad9f22d96668")]
 
 // Version information for an assembly consists of the following four values:
 //

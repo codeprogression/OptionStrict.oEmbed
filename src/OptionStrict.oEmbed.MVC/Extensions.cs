@@ -7,7 +7,12 @@ namespace OptionStrict.oEmbed.MVC
     {
         public static oEmbed oEmbed(this HtmlHelper helper, string api, string url)
         {
-            return (DependencyResolver.Current.GetService<IoEmbedReader>()).Read(api, url).oEmbed;
+            var oEmbedReader = DependencyResolver.Current.GetService<IoEmbedReader>();
+
+            if (oEmbedReader == null)
+                throw new NullOEmbedReaderException();
+
+            return oEmbedReader.Read(api, url).oEmbed;
         }
 
         public static oEmbed oEmbed(this HtmlHelper helper, Uri api, Uri url)
