@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>OptionStrict.oEmbed</id>
+    <version>1.0.0.1</version>
+    <title />
+    <authors>Richard Cirerol,Cory Isakson</authors>
+    <owners>Richard Cirerol,Cory Isakson</owners>
+    <licenseUrl>https://github.com/codeprogression-opensource/OptionStrict.oEmbed/blob/master/LICENSE.txt</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A .NET library for reading and writing oEmbed streams.</description>
+    <summary>Base framework for reading and writing oembed streams.</summary>
+    <tags>oembed</tags>
+  </metadata>
+  <files>
+    <file src="lib\net40\OptionStrict.oEmbed.dll" target="lib\net40\OptionStrict.oEmbed.dll" />
+    <file src="lib\net40\OptionStrict.oEmbed.pdb" target="lib\net40\OptionStrict.oEmbed.pdb" />
+  </files>
+</package>

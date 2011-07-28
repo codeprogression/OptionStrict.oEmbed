@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata schemaVersion="2">
+    <id>OptionStrict.oEmbed.Mvc</id>
+    <version>1.0.0.1</version>
+    <title />
+    <authors>Richard Cirerol,Cory Isakson</authors>
+    <owners>Richard Cirerol,Cory Isakson</owners>
+    <licenseUrl>https://github.com/codeprogression-opensource/OptionStrict.oEmbed/blob/master/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/codeprogression-opensource/OptionStrict.oEmbed</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A .NET library for reading and writing oEmbed streams.</description>
+    <summary>MVC implementation of OptionStrict.oEmbed.oEmbedWriter</summary>
+    <tags>oembed mvc</tags>
+    <dependencies>
+      <dependency id="OptionStrict.oEmbed" version="1.0.0.0" />
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Web" targetFramework=".NETFramework4.0" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="lib\net40\OptionStrict.oEmbed.Mvc.dll" target="lib\net40\OptionStrict.oEmbed.Mvc.dll" />
+    <file src="lib\net40\OptionStrict.oEmbed.Mvc.pdb" target="lib\net40\OptionStrict.oEmbed.Mvc.pdb" />
+  </files>
+</package>
