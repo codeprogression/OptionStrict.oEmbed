@@ -8,10 +8,18 @@
 
 <h2>@ViewBag.Message</h2>
 <p>
- Embed Flickr Photo with a simple Html.oEmbed('http://flickr.com/services/oembed?url=http://www.flickr.com/photos/isaksonfamily/4038008803/')
+ Embed Flickr Photo with a simple Html.oEmbed("http://flickr.com/services/oembed","http://www.flickr.com/photos/bees/2341623661/").WrappedHtml()
         <br />
-        @Html.oEmbed(@"http://flickr.com/services/oembed",@"http://www.flickr.com/photos/isaksonfamily/4038008803/").WrappedHtml()
+        @Html.oEmbed("http://flickr.com/services/oembed", "http://www.flickr.com/photos/bees/2341623661/").WrappedHtml()
     </p>
+
+    For more control use the oEmbedRequest class: Html.oEmbed(new oEmbedRequest("http://flickr.com/services/oembed","http://www.flickr.com/photos/isaksonfamily/4038008803/"{MaxHeight = 100, MaxWidth = 200}).WrappedHtml()
+}).WrappedHtml();
+    @Html.oEmbed(new oEmbedRequest("http://flickr.com/services/oembed", "http://www.flickr.com/photos/bees/2341623661/")
+{
+    MaxHeight = 100,
+    MaxWidth = 200
+}).WrappedHtml();
     @using (Html.BeginForm())
     {
         <p>

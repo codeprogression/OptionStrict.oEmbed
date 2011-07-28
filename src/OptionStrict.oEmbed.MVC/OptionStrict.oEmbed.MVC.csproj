@@ -46,6 +46,7 @@
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Extensions.cs" />
+    <Compile Include="NullOEmbedReaderException.cs" />
     <Compile Include="oEmbedWriter.cs" />
   </ItemGroup>
   <ItemGroup>
