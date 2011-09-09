@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptionStrict.oEmbed.WCF", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptionStrict.oEmbed.Example", "OptionStrict.oEmbed.Example\OptionStrict.oEmbed.Example.csproj", "{3E66DBE8-5392-4B9D-BDED-DB44DB2EB318}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptionStrict.oEmbed.35", "OptionStrict.oEmbed.35\OptionStrict.oEmbed.35.csproj", "{73EEAC33-146E-4988-B757-B5339C6C8BA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{3E66DBE8-5392-4B9D-BDED-DB44DB2EB318}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E66DBE8-5392-4B9D-BDED-DB44DB2EB318}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E66DBE8-5392-4B9D-BDED-DB44DB2EB318}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73EEAC33-146E-4988-B757-B5339C6C8BA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73EEAC33-146E-4988-B757-B5339C6C8BA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73EEAC33-146E-4988-B757-B5339C6C8BA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73EEAC33-146E-4988-B757-B5339C6C8BA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
