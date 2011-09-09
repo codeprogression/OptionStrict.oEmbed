@@ -52,7 +52,7 @@ namespace OptionStrict.oEmbed
                     url.AppendFormat("&{0}={1}", key,QueryParameters[key]);    
                 }
             }
-            if (!string.IsNullOrWhiteSpace(UserAgent)) url.AppendFormat("&useragent={0}", UserAgent);
+            if (!string.IsNullOrEmpty(UserAgent.Trim())) url.AppendFormat("&useragent={0}", UserAgent);
             return url.ToString();
         }
 
