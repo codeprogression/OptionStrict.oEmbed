@@ -1,0 +1,1 @@
+powershell.exe "& {Set-ExecutionPolicy -ExecutionPolicy RemoteSigned}; .\install-packages.ps1"
