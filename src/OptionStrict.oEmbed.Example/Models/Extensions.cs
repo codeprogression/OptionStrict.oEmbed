@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace OptionStrict.oEmbed.Example.Models
 {
@@ -21,7 +20,8 @@ namespace OptionStrict.oEmbed.Example.Models
                     result = oEmbedResult.Html;
                     break;
             }
-            return new MvcHtmlString(result);
+            var mvcHtmlString = new MvcHtmlString(result);
+            return mvcHtmlString;
         }
     }
 }

@@ -1,52 +1,46 @@
 ﻿@using OptionStrict.oEmbed
 @using OptionStrict.oEmbed.Example.Models
 @using OptionStrict.oEmbed.MVC
-@model oEmbedResponse
 @{
     ViewBag.Title = "Home Page";
 }
 
 <h2>@ViewBag.Message</h2>
-<p>
- Embed Flickr Photo with a simple Html.oEmbed("http://flickr.com/services/oembed","http://www.flickr.com/photos/bees/2341623661/").WrappedHtml()
-        <br />
-        @Html.oEmbed("http://flickr.com/services/oembed", "http://www.flickr.com/photos/bees/2341623661/").WrappedHtml()
-    </p>
 
-    For more control use the oEmbedRequest class: Html.oEmbed(new oEmbedRequest("http://flickr.com/services/oembed","http://www.flickr.com/photos/isaksonfamily/4038008803/"{MaxHeight = 100, MaxWidth = 200}).WrappedHtml()
-}).WrappedHtml();
+<div>
+    Embed Flickr Photo with a simple: <blockquote>
+                                           <pre>Html.oEmbed("http://flickr.com/services/oembed","http://www.flickr.com/photos/bees/2341623661/").WrappedHtml()</pre>
+                                      </blockquote>
+
+    <p>
+         @Html.oEmbed("http://flickr.com/services/oembed", "http://www.flickr.com/photos/bees/2341623661/").WrappedHtml()
+     </p>
+</div>
+<div>
+    For more control use the oEmbedRequest class: <blockquote>
+                                                       <pre>Html.oEmbed(new oEmbedRequest("http://flickr.com/services/oembed","http://www.flickr.com/photos/isaksonfamily/4038008803/"{MaxHeight = 100, MaxWidth = 200}).WrappedHtml()</pre>
+                                                  </blockquote>    
+<p>
     @Html.oEmbed(new oEmbedRequest("http://flickr.com/services/oembed", "http://www.flickr.com/photos/bees/2341623661/")
-{
-    MaxHeight = 100,
-    MaxWidth = 200
-}).WrappedHtml();
-    @using (Html.BeginForm())
+                   {
+                       MaxHeight = 100,
+                       MaxWidth = 200
+                   }).WrappedHtml();
+                   </p>
+</div>
+
+@using (Html.BeginForm("Oembed","Home",FormMethod.Get))
     {
         <p>
             Enter an oEmbed API:<br />
-            @Html.TextBox("api", "http://www.youtube.com/oembed", new {style = "width:800px"})
+            @Html.TextBox("api", "http://www.youtube.com/oembed", new { style = "width:800px" })
         </p>
         <p>
             Enter an oEmbed Url:<br />
-            @Html.TextBox("url", "http://www.youtube.com/watch?v=hzCzFUBLyoQ", new {style = "width:800px"})
+            @Html.TextBox("url", "http://www.youtube.com/watch?v=hzCzFUBLyoQ", new { style = "width:800px" })
         </p>
         <p>
             <input type="submit" value="Parse" />
             
         </p>
-        <p>RawResult(@Model.Format.ToString())
-</p>    
-        <pre>@HttpUtility.HtmlEncode(Model.RawResult)</pre>
-    <p>
-            Type:
-            @Model.oEmbed.Type.ToString()</p>
-        <p>S
-            AuthorName:
-            @Model.oEmbed.AuthorName</p>
-        <p>
-            Url:
-            @HttpUtility.UrlDecode(Model.oEmbed.Url)</p>
-        <p>
-            Html:
-            @Model.oEmbed.WrappedHtml()</p>
     }
