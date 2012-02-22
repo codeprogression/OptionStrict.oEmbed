@@ -47,7 +47,7 @@ namespace OptionStrict.oEmbed
             if (Format != oEmbedFormat.Unspecified) url.AppendFormat("&format={0}", Format);
             if (QueryParameters.HasKeys())
             {
-                foreach (var key in QueryParameters.AllKeys)
+                foreach (var key in QueryParameters.AllKeys.Except(new[] { "maxwidth", "maxheight", "format", "url" }))
                 {
                     url.AppendFormat("&{0}={1}", key,QueryParameters[key]);    
                 }
@@ -60,7 +60,7 @@ namespace OptionStrict.oEmbed
         {
             foreach (var key in queryString.AllKeys)
             {
-                if (key.ToLower().In("api","url")) continue;
+                if (key.ToLower().In("api", "url", "maxheight", "maxwidth", "format")) continue;
                 var index = key;
                 var propertyInfos = GetType().GetProperties();
                 var property = propertyInfos
