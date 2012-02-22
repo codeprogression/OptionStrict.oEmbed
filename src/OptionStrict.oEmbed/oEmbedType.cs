@@ -10,6 +10,7 @@ namespace OptionStrict.oEmbed
         [XmlEnum(Name = "rich")] Rich,
         [XmlEnum(Name = "photo")] Photo,
         [XmlEnum(Name = "video")] Video,
-        [XmlEnum(Name = "link")] Link
+        [XmlEnum(Name = "link")] Link,
+        [XmlEnum(Name = "error")] Error
     }
 }

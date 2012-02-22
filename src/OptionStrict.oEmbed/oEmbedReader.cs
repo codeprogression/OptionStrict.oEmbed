@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Text;
 using System.Web;
@@ -85,10 +87,11 @@ namespace OptionStrict.oEmbed
 
         private oEmbedResponse GetQueryResult(oEmbedRequest request)
         {
-            if (request.MaxWidth.HasValue)
-                request.QueryParameters.Add("maxwidth", request.MaxWidth.Value.ToString());
-            if (request.MaxHeight.HasValue)
-                request.QueryParameters.Add("maxheight", request.MaxHeight.Value.ToString());
+            if (request.MaxWidth.HasValue && request.QueryParameters.AllKeys.All(x => x != "maxwidth"))
+                request.QueryParameters.Add("maxwidth", request.MaxWidth.Value.ToString(CultureInfo.InvariantCulture));
+            if (request.MaxHeight.HasValue && request.QueryParameters.AllKeys.All(x => x != "maxheight"))
+                request.QueryParameters.Add("maxheight", request.MaxHeight.Value.ToString(CultureInfo.InvariantCulture));
+            if (request.Format != oEmbedFormat.Unspecified && request.QueryParameters.AllKeys.All(x => x != "format"))
             if (request.Format != oEmbedFormat.Unspecified)
                 request.QueryParameters.Add("format", request.Format.ToString().ToLower());
             var query = new StringBuilder(request.Api + "?url=" + HttpUtility.UrlEncode(request.Url));
@@ -96,39 +99,38 @@ namespace OptionStrict.oEmbed
             {
                 query.Append("&" + request.QueryParameters.GetKey(i) + "=" + request.QueryParameters.Get(i));
             }
+            return GetOEmbedResponseFromWeb(request, query.ToString());
+        }
+
+        private oEmbedResponse GetOEmbedResponseFromWeb(oEmbedRequest request, string query)
+        {
 
             var readResponse = new oEmbedResponse();
-            try
+            var webrequest = (HttpWebRequest) WebRequest.Create(query);
+            if (request.UserAgent != null)
+                webrequest.UserAgent = request.UserAgent;
+            if (request.Format == oEmbedFormat.Json) webrequest.Accept = "application/json";
+            if (request.Format == oEmbedFormat.Xml) webrequest.Accept = "text/xml";
+            using (var response = webrequest.GetResponse() as HttpWebResponse)
             {
-                var webrequest = (HttpWebRequest) WebRequest.Create(query.ToString());
-                if (request.UserAgent != null)
-                    webrequest.UserAgent = request.UserAgent;
-                if (request.Format == oEmbedFormat.Json) webrequest.Accept = "application/json";
-                if (request.Format == oEmbedFormat.Xml) webrequest.Accept = "text/xml";
-                using (var response = webrequest.GetResponse() as HttpWebResponse)
+                if (response != null)
                 {
-                    if (response != null)
-                    {
-                        readResponse.StatusCode = response.StatusCode;
-                        readResponse.StatusDescription = response.StatusDescription;
-                        readResponse.RawResult = ReadResponse(response.GetResponseStream());
+                    readResponse.StatusCode = response.StatusCode;
+                    readResponse.StatusDescription = response.StatusDescription;
+                    readResponse.RawResult = ReadResponse(response.GetResponseStream());
 
-                        if (response.ContentType.ToLower().Contains("xml"))
-                            readResponse.Format = oEmbedFormat.Xml;
-                        if (response.ContentType.ToLower().Contains("json"))
-                            readResponse.Format = oEmbedFormat.Json;
-                        if (response.StatusCode == HttpStatusCode.OK)
-                        {
-                            readResponse.oEmbed = oEmbedSerializer.Deserialize(readResponse);
-                            ValidateResponse(readResponse, request.MaxWidth ?? int.MaxValue, request.MaxHeight ?? int.MaxValue, request.Format);
-                        }
-                        response.Close();
+                    if (response.ContentType.ToLower().Contains("xml"))
+                        readResponse.Format = oEmbedFormat.Xml;
+                    if (response.ContentType.ToLower().Contains("json"))
+                        readResponse.Format = oEmbedFormat.Json;
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+                        readResponse.oEmbed = oEmbedSerializer.Deserialize(readResponse);
+                        ValidateResponse(readResponse, request.MaxWidth ?? int.MaxValue,
+                                         request.MaxHeight ?? int.MaxValue, request.Format);
                     }
+                    response.Close();
                 }
-            }
-            catch (Exception ex)
-            {
-                //Log the exception - log4net?
             }
 
             return readResponse;

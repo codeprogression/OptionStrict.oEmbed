@@ -48,9 +48,9 @@ namespace OptionStrict.oEmbed
                     obj.ThumbnailHeight = serializer.ConvertToType<int?>(dictionary["thumbnail_height"]);
                 if (dictionary.ContainsKey("url"))
                     obj.Url = serializer.ConvertToType<string>(dictionary["url"]);
-                if (dictionary.ContainsKey("width"))
+                if (dictionary.ContainsKey("width") && dictionary["width"] != null)
                     obj.Width = serializer.ConvertToType<int>(dictionary["width"]);
-                if (dictionary.ContainsKey("height"))
+                if (dictionary.ContainsKey("height") && dictionary["height"] != null)
                     obj.Height = serializer.ConvertToType<int>(dictionary["height"]);
                 if (dictionary.ContainsKey("html"))
                     obj.Html = serializer.ConvertToType<string>(dictionary["html"]);
