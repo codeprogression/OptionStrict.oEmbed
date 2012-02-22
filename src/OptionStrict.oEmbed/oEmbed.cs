@@ -5,6 +5,8 @@ namespace OptionStrict.oEmbed
     [XmlRoot("oembed")]
     public class oEmbed
     {
+        public static readonly oEmbed Null = new oEmbed();
+
         public oEmbed()
         {
             Type = oEmbedType.Rich;
