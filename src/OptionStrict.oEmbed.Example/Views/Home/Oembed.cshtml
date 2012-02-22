@@ -1,0 +1,17 @@
+﻿@model OptionStrict.oEmbed.Example.Models.OembedView
+@{
+    ViewBag.Title = "oEmbed Result";
+}
+
+<h2>@ViewBag.Message</h2>
+        <p>RawResult(@Model.Format)
+</p>    
+        <pre style="white-space: pre-wrap"  id="rawResult" data-format="@Model.Format">@Model.RawResult</pre>
+<dl>
+    <dt>Type:</dt><dd>@Model.Type</dd>
+    <dt>Author Name:</dt><dd>@Model.AuthorName</dd>
+    <dt>Url:</dt><dd>@Model.Url</dd>
+    <dt>Html:</dt><dd>@Model.Html</dd>
+
+</dl>
+            

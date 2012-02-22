@@ -1,36 +1,46 @@
-﻿using System.Web.Mvc;
+﻿using System.Web;
+using System.Web.Mvc;
+using OptionStrict.oEmbed.Example.Models;
 
 namespace OptionStrict.oEmbed.Example.Controllers
 {
     [HandleError]
     public class HomeController : Controller
     {
-        readonly IoEmbedWriter _writer;
         readonly IoEmbedReader _reader;
 
-        public HomeController(IoEmbedWriter writer, IoEmbedReader reader)
+        public HomeController(IoEmbedReader reader)
         {
-            _writer = writer;
             _reader = reader;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string api, string url)
         {
-            return View(new oEmbedResponse { oEmbed = new oEmbed() });
+            return View();
+        }
+        public ActionResult Oembed(string api, string url)
+        {
+            if (string.IsNullOrEmpty(api) || string.IsNullOrEmpty(url))
+                return View();
+
+            var oembedResponse =
+                (_reader.Read(api, url, null, null, oEmbedFormat.Json, null, Request.Headers["User-Agent"]));
+            var model = new OembedView
+                        {
+                            RawResult = oembedResponse.RawResult,
+                            Format = oembedResponse.Format.ToString(),
+                            AuthorName = oembedResponse.oEmbed.AuthorName,
+                            Type = oembedResponse.oEmbed.Type.ToString(),
+                            Url = HttpUtility.UrlDecode(oembedResponse.oEmbed.Url),
+                            Html = oembedResponse.oEmbed.Html
+                        };
+            model.PrettyPrint();
+            return View(model);
         }
 
         public ActionResult About()
         {
             return View();
-        }
-
-        [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Index(string api, string url)
-        {
-            var oembedResponse =
-                (_reader.Read(api, url, null, null, oEmbedFormat.Json, null, Request.Headers["User-Agent"]));
-            _writer.WriteResponse(oembedResponse.oEmbed, oEmbedFormat.Xml);
-            return View(oembedResponse);
         }
     }
 }

@@ -28,3 +28,6 @@ _cache\*
 sql/
 
 Sample/package	
+
+src/packages/*
+!src/packages/repositories.config
